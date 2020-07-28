@@ -108,10 +108,10 @@ class Calculator {
 
 
 // 7. Calculate Course Handicap
-function calcCourseHandicap(netHandicapDiffAvg, slope) {
+function calcCourseHandicap(netHandicapDiffAvg, slope, courseRating) {
 
     console.log("DEBUG netHandicapDiffAvg = " + netHandicapDiffAvg);
-    let courseHandicap = netHandicapDiffAvg * slope / 113;
+    let courseHandicap = netHandicapDiffAvg * slope / courseRating;
     console.log(" DEBUG courseHandicap = " + courseHandicap);
     courseHandicap = Calculator.truncateDecimals(courseHandicap * 1) / 1;
     console.log("YOUR COURSE HANDICAP :: " + courseHandicap);
@@ -178,4 +178,4 @@ function runHandicapIndexCalculator(scoreCard) {
 const scoreCard = createDummyScorecard();
 let myCalculatedHandicapIndex = runHandicapIndexCalculator(scoreCard);
 
-calcCourseHandicap(12.5, 120);
+calcCourseHandicap(12.5, 120, 113);
