@@ -108,6 +108,7 @@ class Calculator {
 
 
 // 7. Calculate Course Handicap
+// takes in return value from the Calculator.netHandicapDiffAvg() function and returns case-by-case Course Handicap
 function calcCourseHandicap(netHandicapDiffAvg, slope, courseRating) {
 
     console.log("DEBUG netHandicapDiffAvg = " + netHandicapDiffAvg);
@@ -141,6 +142,9 @@ function createDummyScorecard() {
     scoreCard.addScore(65.9, 118, 85);
     scoreCard.addScore(74.3, 137, 88);
     scoreCard.addScore(71.1, 126, 90);
+    // scoreCard.addscore accepts: 
+    // 1. Course Rating, 2. Slope, 3. Handicap Index
+    scoreCard.addScore();
     return scoreCard;
 
 }
@@ -175,7 +179,7 @@ function runHandicapIndexCalculator(scoreCard) {
 
 }
 
-const scoreCard = createDummyScorecard();
+{const scoreCard = createDummyScorecard();
 let myCalculatedHandicapIndex = runHandicapIndexCalculator(scoreCard);
 
-calcCourseHandicap(12.5, 120, 113);
+calcCourseHandicap(12.5, 120, 113);}
