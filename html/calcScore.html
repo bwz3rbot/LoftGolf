@@ -1,117 +1,259 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
 
-<head>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css" />
 
-   <link rel="stylesheet" href="../css/style.css">
-   <title>Loft Golf</title>
-</head>
+    <!-- jquery -->
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
 
-<body class="bgImage">
+    <title>Loft Golf</title>
+  </head>
+
+  <body class="bgImage">
     <!-- main body container -->
     <div class="container-fluid backgroundColor">
-
-        <!-- Navbar Row -->
-        <!-- Image and text -->
-<nav class="navbar navbar-light bg-transparent fixed-top">
-    <a class="navbar-brand" href="index.html">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-flag" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#03A9F4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z"/>
+      <!-- Navbar Row -->
+      <!-- Image and text -->
+      <nav class="navbar navbar-light bg-transparent fixed-top">
+        <a class="navbar-brand" href="index.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-flag"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#03A9F4"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />
             <line x1="5" y1="5" x2="5" y2="21" />
             <line x1="19" y1="5" x2="19" y2="14" />
             <path d="M5 5a5 5 0 0 1 7 0a5 5 0 0 0 7 0" />
             <path d="M5 14a5 5 0 0 1 7 0a5 5 0 0 0 7 0" />
           </svg>
-      Loft Golf | <span class="text-primary">matching players by skill level</span>
-    </a>
-  </nav>
-  <!-- After Nav -->
-<div class="container my-5 py-3">
-  <table class="table table-hover table-success">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Course Rating</th>
-        <th scope="col">Course Slope Rating</th>
-        <th scope="col">18-Hole Score</th>
-        <th scope="col">9-Hole Score</th>
-        <th scope="col">Playing Condition Adjustment</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Round #1</th>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row">Round #2</th>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row">Round #3</th>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row">Round #4</th>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row">Round #5</th>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <th scope="row">Round #6</th>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-      </tr>
+          Loft Golf |
+          <span class="text-primary">matching players by skill level</span>
+        </a>
+      </nav>
+      <!-- After Nav -->
 
+      <!-- Course Handicap Calc Table -->
 
-    </tbody>
-   
-  </table>
-  <div class="container text-center">
-    <button onclick="calcScore()" id="#calcButton">Calculate Handicap</button>
-  </div>
-  
+<div class="container">
+     <div class="row mt-5 justify-content-center">
+       <div class="col-6">
+        <table class="table table-success mt-5">
     
+          <tbody>
+            <tr>
+              <th scope="row">Handicap Index</th>
+              <td><input id="handicapIndex" type="text"></td>
+            </tr>
+            <tr>
+              <th scope="row">Course Rating</th>
+              <td><input id="courseRating" type="text"></td>
+            </tr>
+            <tr>
+              <th scope="row">Slope Rating</th>
+              <td><input id="slopeRating" type="text"></td>
+            </tr>
+           
+          </tbody>
+        </table>
+       </div>
+      <div class="col-6">
+
+        <div class="container mt-5 shadow">
+          <div class="row justify-content-center">
+            <div class="col text-center">
+              <h1>Your Course Handicap:</h1>
+            </div>
+            
+          </div>
+          <div class="row justify-content-center">
+            <div class="col text-center">
+              <h1 id="courseHandicapSpan">__.__</h1>
+            </div>
+            
+          </div>
+          <div class="row justify-content-center">
+            <div class="col text-center">
+              <button id="calculateHandicap" type="button" class="btn btn-success">Calculate</button>
+              <button id="clearInputs" type="button" class="btn btn-danger">Clear</button>
+            </div>
+            
+          </div>
+         
+
+
+        </div>
+   
+       </div>
+       </div>
+       
+       
+
+       
+       
+   
+       
+     </div>
 </div>
 
+      <!-- Result Pane -->
+      <div id="resultsPanel" class="container" style="display: none;">
+        <div class="jumbotron bg-transparent">
+          <h1>Your Results:</h1>
 
+          <table id="resultsTable" class="table table-success">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Round</th>
+                <th scope="col">Course Rating</th>
+                <th scope="col">Slope Rating</th>
+                <th scope="col">Score</th>
+                <th scope="col">Handicap Differential</th>
+                <th scope="col">Handicap Index</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-center">
+              <!-- Round 1 -->
+              <tr>
+                <th scope="row">#1</th>
+                <td id="R1_CR_RESULT">0</td>
+                <td id="R1_SR_RESULT">0</td>
+                <td id="R1_SCORE_RESULT">0</td>
+                <td id="R1_DIFFERENTIAL">0</td>
+                
+              </tr>
+              <!-- Round 2 -->
+              <tr>
+                <th scope="row">#2</th>
+                <td id="R2_CR_RESULT">0</td>
+                <td id="R2_SR_RESULT">0</td>
+                <td id="R2_SCORE_RESULT">0</td>
+                <td id="R2_DIFFERENTIAL">0</td>
+              </tr>
+              <!-- Round 3 -->
+              <tr>
+                <th scope="row">#3</th>
+                <td id="R3_CR_RESULT">0</td>
+                <td id="R3_SR_RESULT">0</td>
+                <td id="R3_SCORE_RESULT">0</td>
+                <td id="R3_DIFFERENTIAL">0</td>
+              </tr>
+              <!-- Round 4 -->
+              <tr>
+                <th scope="row">#4</th>
+                <td id="R4_CR_RESULT">0</td>
+                <td id="R4_SR_RESULT">0</td>
+                <td id="R4_SCORE_RESULT">0</td>
+                <td id="R4_DIFFERENTIAL">0</td>
+              </tr>
+              <!-- Round 5 -->
+              <tr>
+                <th scope="row">#5</th>
+                <td id="R5_CR_RESULT">0</td>
+                <td id="R5_SR_RESULT">0</td>
+                <td id="R5_SCORE_RESULT">0</td>
+                <td id="R5_DIFFERENTIAL">0</td>
+              </tr>
+              <!-- Round 6 -->
+              <tr>
+                <th scope="row">#6</th>
+                <td id="R6_CR_RESULT">0</td>
+                <td id="R6_SR_RESULT">0</td>
+                <td id="R6_SCORE_RESULT">0</td>
+                <td id="R6_DIFFERENTIAL">0</td>
+                <td id="HANDICAP_INDEX_RESULT">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Result Pane End -->
+
+      <div class="container py-3">
+        <table id="table" class="table table-hover table-success">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Course Rating</th>
+              <th scope="col">Course Slope Rating</th>
+              <th scope="col">18-Hole Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Round #1</th>
+              <td><input id="R1_CR" type="text" value="70.3" /></td>
+              <td><input id="R1_SR" type="text" value="126" /></td>
+              <td><input id="R1_SCORE" type="text" value="100" /></td>
+            </tr>
+            <tr>
+              <th id="round2" scope="row">Round #2</th>
+              <td><input id="R2_CR" type="text" value="35.3" /></td>
+              <td><input id="R2_SR" type="text" value="122" /></td>
+              <td><input id="R2_SCORE" type="text" value="100" /></td>
+            </tr>
+            <tr>
+              <th id="round3" scope="row">Round #3</th>
+              <td><input id="R3_CR" type="text" value="66.8" /></td>
+              <td><input id="R3_SR" type="text" value="120" /></td>
+              <td><input id="R3_SCORE" type="text" value="100" /></td>
+            </tr>
+            <tr>
+              <th id="round4" scope="row">Round #4</th>
+              <td><input id="R4_CR" type="text" value="65.9" /></td>
+              <td><input id="R4_SR" type="text" value="118" /></td>
+              <td><input id="R4_SCORE" type="text" value="85" /></td>
+            </tr>
+            <tr>
+              <th id="round5" scope="row">Round #5</th>
+              <td><input id="R5_CR" type="text" value="74.3" /></td>
+              <td><input id="R5_SR" type="text" value="137" /></td>
+              <td><input id="R5_SCORE" type="text" value="88" /></td>
+            </tr>
+            <tr>
+              <th id="round6" scope="row">Round #6</th>
+              <td><input id="R6_CR" type="text" value="71.1" /></td>
+              <td><input id="R6_SR" type="text" value="126" /></td>
+              <td><input id="R6_SCORE" type="text" value="90" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="container text-center">
+          <!-- container start -->
+
+          <button id="extractTable">Calculate Handicap</button>
+
+          <!-- container end -->
+        </div>
+      </div>
     </div>
 
-
-<script src="../scripts/scoreCalculator.js"></script>
-
-
-
-</body>
-
+    <script src="../scripts/scoreCalculator.js"></script>
+  </body>
 </html>

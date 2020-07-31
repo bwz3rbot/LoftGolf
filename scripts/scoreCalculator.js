@@ -116,6 +116,7 @@ function calcCourseHandicap(netHandicapDiffAvg, slope, courseRating) {
     console.log(" DEBUG courseHandicap = " + courseHandicap);
     courseHandicap = Calculator.truncateDecimals(courseHandicap * 1) / 1;
     console.log("YOUR COURSE HANDICAP :: " + courseHandicap);
+    return courseHandicap;
 
 }
 
@@ -144,7 +145,6 @@ function createDummyScorecard() {
     scoreCard.addScore(71.1, 126, 90);
     // scoreCard.addscore accepts: 
     // 1. Course Rating, 2. Slope, 3. Handicap Index
-    scoreCard.addScore();
     return scoreCard;
 
 }
@@ -178,8 +178,200 @@ function runHandicapIndexCalculator(scoreCard) {
 
 
 }
-
+function testApp()
 {const scoreCard = createDummyScorecard();
 let myCalculatedHandicapIndex = runHandicapIndexCalculator(scoreCard);
 
 calcCourseHandicap(12.5, 120, 113);}
+
+
+// Extract Table Function
+function extractTable(){
+    document.querySelector("#resultsPanel").style.display ="block"
+
+    
+
+ 
+// Input Nodes
+//  Round 1
+let R1_CR = document.querySelector("#R1_CR").value;
+let R1_SR = document.querySelector("#R1_SR").value;
+let R1_SCORE = document.querySelector("#R1_SCORE").value;
+// Round 2
+let R2_CR = document.querySelector("#R2_CR").value;
+let R2_SR = document.querySelector("#R2_SR").value;
+let R2_SCORE = document.querySelector("#R2_SCORE").value;
+// Round 3
+let R3_CR = document.querySelector("#R3_CR").value;
+let R3_SR = document.querySelector("#R3_SR").value;
+let R3_SCORE = document.querySelector("#R3_SCORE").value;
+// Round 4
+let R4_CR = document.querySelector("#R4_CR").value;
+let R4_SR = document.querySelector("#R4_SR").value;
+let R4_SCORE = document.querySelector("#R4_SCORE").value;
+// Round 5
+let R5_CR = document.querySelector("#R5_CR").value;
+let R5_SR = document.querySelector("#R5_SR").value;
+let R5_SCORE = document.querySelector("#R5_SCORE").value;
+// Round 6
+let R6_CR = document.querySelector("#R6_CR").value;
+let R6_SR = document.querySelector("#R6_SR").value;
+let R6_SCORE = document.querySelector("#R6_SCORE").value;
+
+// Result Nodes
+// Round 1
+let R1_CR_RESULT = document.querySelector("#R1_CR_RESULT");
+let R1_SR_RESULT = document.querySelector("#R1_SR_RESULT");
+let R1_SCORE_RESULT = document.querySelector("#R1_SCORE_RESULT");
+let R1_DIFF = document.querySelector("#R1_DIFFERENTIAL");
+// Round 2
+let R2_CR_RESULT = document.querySelector("#R2_CR_RESULT");
+let R2_SR_RESULT = document.querySelector("#R2_SR_RESULT");
+let R2_SCORE_RESULT = document.querySelector("#R2_SCORE_RESULT");
+let R2_DIFF = document.querySelector("#R2_DIFFERENTIAL");
+// Round 3
+let R3_CR_RESULT = document.querySelector("#R3_CR_RESULT");
+let R3_SR_RESULT = document.querySelector("#R3_SR_RESULT");
+let R3_SCORE_RESULT = document.querySelector("#R3_SCORE_RESULT");
+let R3_DIFF = document.querySelector("#R3_DIFFERENTIAL");
+// Round 4
+let R4_CR_RESULT = document.querySelector("#R4_CR_RESULT");
+let R4_SR_RESULT = document.querySelector("#R4_SR_RESULT");
+let R4_SCORE_RESULT = document.querySelector("#R4_SCORE_RESULT");
+let R4_DIFF = document.querySelector("#R4_DIFFERENTIAL");
+// Round 5
+let R5_CR_RESULT = document.querySelector("#R5_CR_RESULT");
+let R5_SR_RESULT = document.querySelector("#R5_SR_RESULT");
+let R5_SCORE_RESULT = document.querySelector("#R5_SCORE_RESULT");
+let R5_DIFF = document.querySelector("#R5_DIFFERENTIAL");
+// Round 6
+let R6_CR_RESULT = document.querySelector("#R6_CR_RESULT");
+let R6_SR_RESULT = document.querySelector("#R6_SR_RESULT");
+let R6_SCORE_RESULT = document.querySelector("#R6_SCORE_RESULT");
+let R6_DIFF = document.querySelector("#R6_DIFFERENTIAL");
+// Handicap Index
+let HANDICAP_INDEX = document.querySelector("#HANDICAP_INDEX_RESULT")
+
+let scoreCard = new ScoreCard();
+scoreCard.addScore(R1_CR,R1_SR,R1_SCORE);
+scoreCard.addScore(R2_CR,R2_SR,R2_SCORE);
+scoreCard.addScore(R3_CR,R3_SR,R3_SCORE);
+scoreCard.addScore(R4_CR,R4_SR,R4_SCORE);
+scoreCard.addScore(R5_CR,R5_SR,R5_SCORE);
+scoreCard.addScore(R6_CR,R6_SR,R6_SCORE);
+
+let diffs = Calculator.returnDifferentials(scoreCard);
+let calculatedScores = Calculator.netHandicapDiffAvg(diffs);
+HANDICAP_INDEX_RESULT.textContent = calculatedScores;
+
+// Update Result Pane
+
+// Round 1
+R1_CR_RESULT.textContent = R1_CR;
+R1_SR_RESULT.textContent = R1_SR;
+R1_SCORE_RESULT.textContent = R1_SCORE;
+R1_DIFF.textContent = diffs[0];
+// Round 2
+R2_CR_RESULT.textContent = R2_CR;
+R2_SR_RESULT.textContent = R2_SR;
+R2_SCORE_RESULT.textContent = R2_SCORE;
+R2_DIFF.textContent = diffs[1];
+// Round 2
+R3_CR_RESULT.textContent = R3_CR;
+R3_SR_RESULT.textContent = R3_SR;
+R3_SCORE_RESULT.textContent = R3_SCORE;
+R3_DIFF.textContent = diffs[2];
+// Round 4
+R4_CR_RESULT.textContent = R4_CR;
+R4_SR_RESULT.textContent = R4_SR;
+R4_SCORE_RESULT.textContent = R4_SCORE;
+R4_DIFF.textContent = diffs[3];
+// Round 5
+R5_CR_RESULT.textContent = R5_CR;
+R5_SR_RESULT.textContent = R5_SR;
+R5_SCORE_RESULT.textContent = R5_SCORE;
+R5_DIFF.textContent = diffs[4];
+// Round 6
+R6_CR_RESULT.textContent = R6_CR;
+R6_SR_RESULT.textContent = R6_SR;
+R6_SCORE_RESULT.textContent = R6_SCORE;
+R6_DIFF.textContent = diffs[5];
+
+// Handicap Index
+let handicapIndexInput = document.querySelector("#handicapIndex");
+handicapIndexInput.value=calculatedScores;
+
+
+
+}
+
+
+let extractTableButton = document.querySelector("#extractTable");
+extractTableButton.addEventListener("click",extractTable);
+
+var Table = {
+    rounds:[
+    newRound(1,R1_CR,R1_SR,R1_SCORE),
+    newRound(2,R2_CR,R2_SR,R2_SCORE),
+    newRound(3,R3_CR,R3_SR,R3_SCORE),
+    newRound(4,R4_CR,R4_SR,R4_SCORE),
+    newRound(5,R5_CR,R5_SR,R5_SCORE),
+    newRound(6,R6_CR,R6_SR,R6_SCORE)
+    ]
+
+    
+}
+
+class Round {
+    constructor(){
+        this.number;
+        this.courseRating;
+        this.slopeRating;
+        this.score;
+    }
+
+    static newRound(number,courseRating,slopeRating,score){
+        let round = new Round();
+        round.number=
+        round.courseRating = courseRating;
+        round.slopeRating = slopeRating;
+        round.score=score;
+
+    }
+}
+
+
+// Calculate Handicap Index
+// Buttons
+// Calc Button
+let calculateHandicapIndexButton = document.querySelector("#calculateHandicap");
+calculateHandicapIndexButton.addEventListener("click",calculateHandicapIndex);
+
+// Clear Inputs Button
+let clearInputsButton = document.querySelector("#clearInputs");
+clearInputsButton.addEventListener("click", clearInputs);
+
+// Course Handicap Result Span
+let courseHandicapResultSpan = document.querySelector("#courseHandicapSpan");
+
+let handicapIndexInput = document.querySelector("#handicapIndex");
+let courseRatingInput = document.querySelector("#courseRating");
+let slopeRatingInput = document.querySelector("#slopeRating");
+
+function calculateHandicapIndex(){
+
+ let handicap = calcCourseHandicap(handicapIndexInput.value,slopeRatingInput.value,courseRatingInput.value);
+ console.log("handicap = "+ handicap);
+ courseHandicapResultSpan.textContent = handicap;
+
+
+}
+
+function clearInputs(){
+    handicapIndexInput.value="";
+    courseRatingInput.value="";
+    slopeRatingInput.value="";
+    courseHandicapResultSpan.textContent="__.__";
+    
+    
+}

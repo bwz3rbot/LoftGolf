@@ -13,3 +13,12 @@
     background-attachment: fixed;
     background-position: center;
   }
+
+  #courseHandicapTable{
+    width:30rem;
+    }
+
+    #HANDICAP_INDEX_RESULT {
+     
+      text-decoration: underline;
+    }
